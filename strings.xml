@@ -1,0 +1,92 @@
+<strings>
+<string id="AppName">VirtualPetNothing</string>
+
+<!-- Eye Color Settings -->
+<string id="eyesTitle">Eye Color</string>
+<string id="eyesPrompt">Select Eye Color</string>
+<string id="EyesBlack">Black</string>
+<string id="EyesBrown">Brown</string>
+<string id="EyesBlue">Blue</string>
+<string id="EyesGreen">Green</string>
+<string id="EyesYellow">Yellow</string>
+<string id="EyesPurple">Purple</string>
+<string id="EyesGrey">Grey</string>
+<string id="EyesPink">Pink</string>
+<string id="EyesRed">Red</string>
+<!-- Hair Color Settings -->
+<string id="haircolorTitle">Hair Color</string>
+<string id="haircolorPrompt">Select Hair Color</string>
+<string id="HairBrown">Brown</string>
+<string id="HairHoneyBlonde">Honey Blonde</string>
+<string id="HairBlonde">Blonde</string>
+<string id="HairBlack">Black</string>
+<string id="HairRed">Red</string>
+<string id="HairPink">Pink</string>
+<string id="HairBlue">Blue</string>
+<string id="HairGreen">Green</string>
+<string id="HairPurple">Purple</string>
+<string id="HairWhite">White</string>
+<!-- Bangs Settings -->
+<string id="bangsTitle">Bangs</string>
+<string id="bangsPrompt">Select Bang Style</string>
+<string id="Bangs1">Bangs Style 1</string>
+<string id="Bangs2">Bangs Style 2</string>
+<string id="Bangs3">Bangs Style 3</string>
+<string id="BoyHair">Boy Hair</string>
+<!-- Skin Settings -->
+<string id="skinTitle">Skin Color</string>
+<string id="skinPrompt">Select Skin Color</string>
+<string id="SkinFair">Fair</string>
+<string id="SkinMedium">Medium</string>
+<string id="SkinDark">Dark</string>
+<string id="SkinGreen">Green</string>
+<string id="SkinBlue">Blue</string>
+<string id="SkinPink">Pink</string>
+<string id="SkinPhantom">Phantom</string>
+<!-- Pet Settings -->
+<string id="petTitle">Pet</string>
+<string id="petPrompt">Select Pet</string>
+<string id="Duck">Duck</string>
+<string id="Chicken">Chicken</string>
+<string id="Pig">Pig</string>
+<string id="Cat">Cat</string>
+<string id="Butterfly">Butterfly</string>
+<string id="Mouse">Mouse</string>
+<string id="Frog">Frog</string>
+<!-- Clothes Settings -->
+<string id="clothesTitle">Clothing</string>
+<string id="clothesPrompt">Select Clothing Style</string>
+<string id="DressStyle1">Dress Style 1</string>
+<string id="DressStyle2">Dress Style 2</string>
+<string id="DressStyle3">Dress Style 3</string>
+<string id="BoyClothes">Boy Clothes</string>
+<!-- Hairpiece Settings -->
+<string id="hairpieceTitle">Hairpiece</string>
+<string id="hairpiecePrompt">Select Hairpiece</string>
+<string id="HairpieceNone">No Hairpiece</string>
+<string id="Hairpiece1">Hairpiece 1</string>
+<string id="Hairpiece2">Hairpiece 2</string>
+<string id="Hairpiece3">Hairpiece 3</string>
+
+  <!-- Candy Settings -->
+  <string id="candyTitle">Candy</string>
+  <string id="candyPrompt">Select Candy Amount</string>
+  <string id="TooMuchCandy">Too Much Candy</string>
+  <string id="SomeCandy">Some Candy</string>
+  <string id="NoCandy">No Candy</string>
+   <!-- Candy Settings -->
+<string id="sleepcandyTitle">Candy Selection</string>
+<string id="sleepcandyPrompt">Choose your candy type</string>
+<string id="GreenAppleEye">Green Apple Eye</string>
+<string id="ChocolateEye">Chocolate Eye</string>
+<string id="RaspberryEye">Raspberry Eye</string>
+<string id="SourCherrySkull">Sour Cherry Skull</string>
+<string id="RainbowSkull">Rainbow Skull</string>
+<string id="MintSkull">Mint Skull</string>
+<string id="EyeCandy">Eye Candy</string>
+<string id="SkullCandy">Skull Candy</string>
+<string id="SourPotion">Sour Potion</string>
+<string id="RainbowEye">Rainbow Eye</string>
+<string id="ScaryPumpkinPop">Scary Pumpkin Pop</string>
+</strings>
+

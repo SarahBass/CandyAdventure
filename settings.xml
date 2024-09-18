@@ -1,0 +1,131 @@
+<resources>
+
+<properties>
+   <property id="eyes" type="number">0</property>
+<property id="bangs" type="number">0</property>
+<property id="skin" type="number">0</property>
+<property id="pet" type="number">0</property>
+<property id="haircolor" type="number">0</property>
+<property id="clothes" type="number">0</property>
+<property id="hairpiece" type="number">0</property>
+    <property id="candy" type="number">0</property>
+    <property id="sleepcandy" type="number">0</property>
+</properties>
+
+<setting propertyKey="@Properties.eyes" title="@Strings.eyesTitle" prompt="@Strings.eyesPrompt">
+    <settingConfig type="list">
+        <listEntry value="0">@Strings.EyesBlack</listEntry>
+        <listEntry value="1">@Strings.EyesBrown</listEntry>
+        <listEntry value="2">@Strings.EyesBlue</listEntry>
+        <listEntry value="3">@Strings.EyesGreen</listEntry>
+        <listEntry value="4">@Strings.EyesYellow</listEntry>
+        <listEntry value="5">@Strings.EyesPurple</listEntry>
+        <listEntry value="6">@Strings.EyesGrey</listEntry>
+        <listEntry value="7">@Strings.EyesPink</listEntry>
+        <listEntry value="8">@Strings.EyesRed</listEntry>
+    </settingConfig>
+</setting>
+
+<setting propertyKey="@Properties.haircolor" title="@Strings.haircolorTitle" prompt="@Strings.haircolorPrompt">
+    <settingConfig type="list">
+        <listEntry value="0">@Strings.HairBrown</listEntry>
+        <listEntry value="1">@Strings.HairHoneyBlonde</listEntry>
+        <listEntry value="2">@Strings.HairBlonde</listEntry>
+        <listEntry value="3">@Strings.HairBlack</listEntry>
+        <listEntry value="4">@Strings.HairRed</listEntry>
+        <listEntry value="5">@Strings.HairPink</listEntry>
+        <listEntry value="6">@Strings.HairBlue</listEntry>
+        <listEntry value="7">@Strings.HairGreen</listEntry>
+        <listEntry value="8">@Strings.HairPurple</listEntry>
+        <listEntry value="9">@Strings.HairWhite</listEntry>
+    </settingConfig>
+</setting>
+
+<setting propertyKey="@Properties.bangs" title="@Strings.bangsTitle" prompt="@Strings.bangsPrompt">
+    <settingConfig type="list">
+        <listEntry value="0">@Strings.Bangs1</listEntry>
+        <listEntry value="1">@Strings.Bangs2</listEntry>
+        <listEntry value="2">@Strings.Bangs3</listEntry>
+        <listEntry value="3">@Strings.BoyHair</listEntry>
+    </settingConfig>
+</setting>
+
+<setting propertyKey="@Properties.pet" title="@Strings.petTitle" prompt="@Strings.petPrompt">
+    <settingConfig type="list">
+        <listEntry value="0">@Strings.Duck</listEntry>
+        <listEntry value="1">@Strings.Chicken</listEntry>
+        <listEntry value="2">@Strings.Pig</listEntry>
+        <listEntry value="3">@Strings.Cat</listEntry>
+        <listEntry value="4">@Strings.Butterfly</listEntry>
+        <listEntry value="5">@Strings.Mouse</listEntry>
+        <listEntry value="6">@Strings.Frog</listEntry>
+    </settingConfig>
+</setting>
+
+<setting propertyKey="@Properties.hairpiece" title="@Strings.hairpieceTitle" prompt="@Strings.hairpiecePrompt">
+    <settingConfig type="list">
+        <listEntry value="0">@Strings.HairpieceNone</listEntry>
+        <listEntry value="1">@Strings.Hairpiece1</listEntry>
+        <listEntry value="2">@Strings.Hairpiece2</listEntry>
+        <listEntry value="3">@Strings.Hairpiece3</listEntry>
+    </settingConfig>
+</setting>
+
+
+<setting propertyKey="@Properties.clothes" title="@Strings.clothesTitle" prompt="@Strings.clothesPrompt">
+    <settingConfig type="list">
+        <listEntry value="0">@Strings.DressStyle1</listEntry>
+        <listEntry value="1">@Strings.DressStyle2</listEntry>
+        <listEntry value="2">@Strings.DressStyle3</listEntry>
+        <listEntry value="3">@Strings.BoyClothes</listEntry>
+    </settingConfig>
+</setting>
+
+
+<setting propertyKey="@Properties.skin" title="@Strings.skinTitle" prompt="@Strings.skinPrompt">
+    <settingConfig type="list">
+        <listEntry value="0">@Strings.SkinFair</listEntry>
+        <listEntry value="1">@Strings.SkinMedium</listEntry>
+        <listEntry value="2">@Strings.SkinDark</listEntry>
+        <listEntry value="3">@Strings.SkinGreen</listEntry>
+        <listEntry value="4">@Strings.SkinBlue</listEntry>
+        <listEntry value="5">@Strings.SkinPink</listEntry>
+        <listEntry value="6">@Strings.SkinPhantom</listEntry>
+    </settingConfig>
+</setting>
+
+
+ <setting propertyKey="@Properties.candy" title="@Strings.candyTitle" prompt="@Strings.candyPrompt">
+    <settingConfig type="list">
+       <listEntry value="0">@Strings.TooMuchCandy</listEntry>
+        <listEntry value="1">@Strings.SomeCandy</listEntry>
+        <listEntry value="2">@Strings.NoCandy</listEntry>
+  </settingConfig>
+  </setting>
+
+   <setting propertyKey="@Properties.candy" title="@Strings.candyTitle" prompt="@Strings.candyPrompt">
+    <settingConfig type="list">
+       <listEntry value="0">@Strings.TooMuchCandy</listEntry>
+        <listEntry value="1">@Strings.SomeCandy</listEntry>
+        <listEntry value="2">@Strings.NoCandy</listEntry>
+  </settingConfig>
+  </setting>
+
+  <setting propertyKey="@Properties.sleepcandy" title="@Strings.sleepcandyTitle" prompt="@Strings.sleepcandyPrompt">
+    <settingConfig type="list">
+        <listEntry value="0">@Strings.GreenAppleEye</listEntry>
+        <listEntry value="1">@Strings.ChocolateEye</listEntry>
+        <listEntry value="2">@Strings.RaspberryEye</listEntry>
+        <listEntry value="3">@Strings.SourCherrySkull</listEntry>
+        <listEntry value="4">@Strings.RainbowSkull</listEntry>
+        <listEntry value="5">@Strings.MintSkull</listEntry>
+        <listEntry value="6">@Strings.EyeCandy</listEntry>
+        <listEntry value="7">@Strings.SkullCandy</listEntry>
+        <listEntry value="8">@Strings.SourPotion</listEntry>
+        <listEntry value="9">@Strings.RainbowEye</listEntry>
+        <listEntry value="10">@Strings.ScaryPumpkinPop</listEntry>
+    </settingConfig>
+</setting>
+
+</settings>
+</resources>

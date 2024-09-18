@@ -1,0 +1,948 @@
+<drawables>
+<bitmap id="LauncherIcon" filename="launcher_icon.png" />
+<bitmap id="firstquar" filename="quar1.png" x = "center" dithering="none"/>
+<bitmap id="thirdquar" filename="quar3.png" x = "center" dithering="none"/>
+<bitmap id="newmoon" filename="new.png" x = "center" dithering="none"/>
+<bitmap id="full" filename="full.png" x = "center" dithering="none"/>
+<bitmap id="waxcres" filename="waxcres.png" x = "center" dithering="none"/>
+<bitmap id="wancres" filename="wancres.png" x = "center" dithering="none"/>
+<bitmap id="waxgib" filename="waxgib.png"  x = "center" dithering="none"/>
+<bitmap id="wangib" filename="wangib.png" x = "center" dithering="none"/>
+    <bitmap id="digit0" filename="0.png" dithering="none" />
+    <bitmap id="digit1" filename="1.png" dithering="none" />
+    <bitmap id="digit2" filename="2.png" dithering="none" />
+    <bitmap id="digit3" filename="3.png" dithering="none" />
+    <bitmap id="digit4" filename="4.png" dithering="none" />
+    <bitmap id="digit5" filename="5.png" dithering="none" />
+    <bitmap id="digit6" filename="6.png" dithering="none" />
+    <bitmap id="digit7" filename="7.png" dithering="none" />
+    <bitmap id="digit8" filename="8.png" dithering="none" />
+    <bitmap id="digit9" filename="9.png" dithering="none" />
+    <bitmap id="colon" filename="colon.png" dithering="none" />
+<bitmap id="goal0" filename="prize0.png" dithering="none" />
+<bitmap id="goal1" filename="prize1.png" dithering="none" />
+<bitmap id="goal2" filename="prize2.png" dithering="none" />
+<bitmap id="goal3" filename="prize3.png" dithering="none" />
+<bitmap id="goal4" filename="prize4.png" dithering="none" />
+<bitmap id="goal5" filename="prize5.png" dithering="none" />
+<bitmap id="goal6" filename="prize6.png" dithering="none" />
+<bitmap id="goal7" filename="prize7.png" dithering="none" />
+<bitmap id="goal8" filename="prize8.png" dithering="none" />
+<bitmap id="goal9" filename="prize9.png" dithering="none" />
+<bitmap id="goal10" filename="prize10.png" dithering="none" />
+<bitmap id="legs0" filename="legs0.png" dithering="none" />
+<bitmap id="legs1" filename="legs1.png" dithering="none" />
+
+<bitmap id="charm0" filename="charm0.png" dithering="none" />
+<bitmap id="charm1" filename="charm1.png" dithering="none" />
+<bitmap id="charm2" filename="charm2.png" dithering="none" />
+
+<bitmap id="dress0" filename="dress0.png" dithering="none" />
+<bitmap id="dress1" filename="dress1.png" dithering="none" />
+<bitmap id="dress2" filename="dress2.png" dithering="none" />
+<bitmap id="dress3" filename="dress3.png" dithering="none" />
+
+<bitmap id="monster0" filename="monster0.png" dithering="none" />
+<bitmap id="monster1" filename="monster1.png" dithering="none" />
+<bitmap id="monster2" filename="monster2.png" dithering="none" />
+
+<bitmap id="pet0" filename="pet0.png" dithering="none" />
+<bitmap id="pet1" filename="pet1.png" dithering="none" />
+<bitmap id="pet2" filename="pet2.png" dithering="none" />
+<bitmap id="pet3" filename="pet3.png" dithering="none" />
+<bitmap id="pet4" filename="pet4.png" dithering="none" />
+<bitmap id="pet5" filename="pet5.png" dithering="none" />
+<bitmap id="pet6" filename="pet6.png" dithering="none" />>
+<!-- Eyes Black -->
+<bitmap id="eyes0" filename="eyes0.png" dithering="none">
+    <palette>
+        <color>FFFFFF</color>
+        <color>000000</color>
+    </palette>
+</bitmap>
+
+<!-- Eyes Brown -->
+<bitmap id="eyes1" filename="eyes0.png" dithering="none">
+    <palette>
+        <color>FFFFFF</color>
+        <color>AD5400</color>
+    </palette>
+</bitmap>
+
+<!-- Eyes Blue -->
+<bitmap id="eyes2" filename="eyes0.png" dithering="none">
+    <palette>
+        <color>FFFFFF</color>
+        <color>3ADFFF</color>
+    </palette>
+</bitmap>
+
+<!-- Eyes Green -->
+<bitmap id="eyes3" filename="eyes0.png" dithering="none">
+    <palette>
+        <color>FFFFFF</color>
+        <color>00FF00</color>
+    </palette>
+</bitmap>
+
+<!-- Eyes Yellow -->
+<bitmap id="eyes4" filename="eyes0.png" dithering="none">
+    <palette>
+        <color>FFFFFF</color>
+        <color>FFAA00</color>
+    </palette>
+</bitmap>
+
+<!-- Eyes Purple -->
+<bitmap id="eyes5" filename="eyes0.png" dithering="none">
+    <palette>
+        <color>FFFFFF</color>
+        <color>AA00FF</color>
+    </palette>
+</bitmap>
+
+<!-- Eyes Grey -->
+<bitmap id="eyes6" filename="eyes0.png" dithering="none">
+    <palette>
+        <color>FFFFFF</color>
+        <color>B09FB6</color>
+    </palette>
+</bitmap>
+
+<!-- Eyes Pink -->
+<bitmap id="eyes7" filename="eyes0.png" dithering="none">
+    <palette>
+        <color>FFFFFF</color>
+        <color>FF3969</color>
+    </palette>
+</bitmap>
+
+<!-- Eyes Red -->
+<bitmap id="eyes8" filename="eyes0.png" dithering="none">
+    <palette>
+        <color>FFFFFF</color>
+        <color>FF0000</color>
+    </palette>
+</bitmap>
+
+<!-- Bangs Blonde -->
+<bitmap id="bangs0_blonde" filename="bangs0.png" dithering="none">
+    <palette>
+        <color>EDE930</color>
+    </palette>
+</bitmap>
+<bitmap id="bangs1_blonde" filename="bangs1.png" dithering="none">
+    <palette>
+        <color>EDE930</color>
+    </palette>
+</bitmap>
+<bitmap id="bangs2_blonde" filename="bangs2.png" dithering="none">
+    <palette>
+        <color>EDE930</color>
+    </palette>
+</bitmap>
+<bitmap id="bangs3_blonde" filename="bangs3.png" dithering="none">
+    <palette>
+        <color>EDE930</color>
+    </palette>
+</bitmap>
+
+<!-- Bangs Red -->
+<bitmap id="bangs0_red" filename="bangs0.png" dithering="none">
+    <palette>
+        <color>FF6666</color>
+    </palette>
+</bitmap>
+<bitmap id="bangs1_red" filename="bangs1.png" dithering="none">
+    <palette>
+        <color>FF6666</color>
+    </palette>
+</bitmap>
+<bitmap id="bangs2_red" filename="bangs2.png" dithering="none">
+    <palette>
+        <color>FF6666</color>
+    </palette>
+</bitmap>
+<bitmap id="bangs3_red" filename="bangs3.png" dithering="none">
+    <palette>
+        <color>FF6666</color>
+    </palette>
+</bitmap>
+
+<!-- Bangs Black -->
+<bitmap id="bangs0_black" filename="bangs0.png" dithering="none">
+    <palette>
+        <color>241919</color>
+    </palette>
+</bitmap>
+<bitmap id="bangs1_black" filename="bangs1.png" dithering="none">
+    <palette>
+        <color>241919</color>
+    </palette>
+</bitmap>
+<bitmap id="bangs2_black" filename="bangs2.png" dithering="none">
+    <palette>
+        <color>241919</color>
+    </palette>
+</bitmap>
+<bitmap id="bangs3_black" filename="bangs3.png" dithering="none">
+    <palette>
+        <color>241919</color>
+    </palette>
+</bitmap>
+
+<!-- Bangs Brown -->
+<bitmap id="bangs0_brown" filename="bangs0.png" dithering="none">
+    <palette>
+        <color>753C05</color>
+    </palette>
+</bitmap>
+<bitmap id="bangs1_brown" filename="bangs1.png" dithering="none">
+    <palette>
+        <color>753C05</color>
+    </palette>
+</bitmap>
+<bitmap id="bangs2_brown" filename="bangs2.png" dithering="none">
+    <palette>
+        <color>753C05</color>
+    </palette>
+</bitmap>
+<bitmap id="bangs3_brown" filename="bangs3.png" dithering="none">
+    <palette>
+        <color>753C05</color>
+    </palette>
+</bitmap>
+
+<!-- Bangs Honeyblonde -->
+<bitmap id="bangs0_honeyblonde" filename="bangs0.png" dithering="none">
+    <palette>
+        <color>D96F0B</color>
+    </palette>
+</bitmap>
+<bitmap id="bangs1_honeyblonde" filename="bangs1.png" dithering="none">
+    <palette>
+        <color>D96F0B</color>
+    </palette>
+</bitmap>
+<bitmap id="bangs2_honeyblonde" filename="bangs2.png" dithering="none">
+    <palette>
+        <color>D96F0B</color>
+    </palette>
+</bitmap>
+<bitmap id="bangs3_honeyblonde" filename="bangs3.png" dithering="none">
+    <palette>
+        <color>D96F0B</color>
+    </palette>
+</bitmap>
+
+<!-- Bangs Blue -->
+<bitmap id="bangs0_blue" filename="bangs0.png" dithering="none">
+    <palette>
+        <color>00C5FF</color>
+    </palette>
+</bitmap>
+<bitmap id="bangs1_blue" filename="bangs1.png" dithering="none">
+    <palette>
+        <color>00C5FF</color>
+    </palette>
+</bitmap>
+<bitmap id="bangs2_blue" filename="bangs2.png" dithering="none">
+    <palette>
+        <color>00C5FF</color>
+    </palette>
+</bitmap>
+<bitmap id="bangs3_blue" filename="bangs3.png" dithering="none">
+    <palette>
+        <color>00C5FF</color>
+    </palette>
+</bitmap>
+
+<!-- Bangs White -->
+<bitmap id="bangs0_white" filename="bangs0.png" dithering="none">
+    <palette>
+        <color>FFFFFF</color>
+    </palette>
+</bitmap>
+<bitmap id="bangs1_white" filename="bangs1.png" dithering="none">
+    <palette>
+        <color>FFFFFF</color>
+    </palette>
+</bitmap>
+<bitmap id="bangs2_white" filename="bangs2.png" dithering="none">
+    <palette>
+        <color>FFFFFF</color>
+    </palette>
+</bitmap>
+<bitmap id="bangs3_white" filename="bangs3.png" dithering="none">
+    <palette>
+        <color>FFFFFF</color>
+    </palette>
+</bitmap>
+
+<!-- Bangs Purple -->
+<bitmap id="bangs0_purple" filename="bangs0.png" dithering="none">
+    <palette>
+        <color>B09FB6</color>
+    </palette>
+</bitmap>
+<bitmap id="bangs1_purple" filename="bangs1.png" dithering="none">
+    <palette>
+        <color>B09FB6</color>
+    </palette>
+</bitmap>
+<bitmap id="bangs2_purple" filename="bangs2.png" dithering="none">
+    <palette>
+        <color>B09FB6</color>
+    </palette>
+</bitmap>
+<bitmap id="bangs3_purple" filename="bangs3.png" dithering="none">
+    <palette>
+        <color>B09FB6</color>
+    </palette>
+</bitmap>
+
+<!-- Bangs Green -->
+<bitmap id="bangs0_green" filename="bangs0.png" dithering="none">
+    <palette>
+        <color>60D467</color>
+    </palette>
+</bitmap>
+<bitmap id="bangs1_green" filename="bangs1.png" dithering="none">
+    <palette>
+        <color>60D467</color>
+    </palette>
+</bitmap>
+<bitmap id="bangs2_green" filename="bangs2.png" dithering="none">
+    <palette>
+        <color>60D467</color>
+    </palette>
+</bitmap>
+<bitmap id="bangs3_green" filename="bangs3.png" dithering="none">
+    <palette>
+        <color>60D467</color>
+    </palette>
+</bitmap>
+
+<!-- Bangs Pink -->
+<bitmap id="bangs0_pink" filename="bangs0.png" dithering="none">
+    <palette>
+        <color>BF539B</color>
+    </palette>
+</bitmap>
+<bitmap id="bangs1_pink" filename="bangs1.png" dithering="none">
+    <palette>
+        <color>BF539B</color>
+    </palette>
+</bitmap>
+<bitmap id="bangs2_pink" filename="bangs2.png" dithering="none">
+    <palette>
+        <color>BF539B</color>
+    </palette>
+</bitmap>
+<bitmap id="bangs3_pink" filename="bangs3.png" dithering="none">
+    <palette>
+        <color>BF539B</color>
+    </palette>
+</bitmap>
+<!-- Hair Blonde -->
+<bitmap id="hair0_blonde" filename="hair0.png" dithering="none">
+    <palette>
+        <color>E7E014</color>
+    </palette>
+</bitmap>
+<bitmap id="hair1_blonde" filename="hair1.png" dithering="none">
+    <palette>
+        <color>E7E014</color>
+    </palette>
+</bitmap>
+<bitmap id="hair2_blonde" filename="hair2.png" dithering="none">
+    <palette>
+        <color>E7E014</color>
+    </palette>
+</bitmap>
+<bitmap id="hair3_blonde" filename="hair3.png" dithering="none">
+    <palette>
+        <color>E7E014</color>
+    </palette>
+</bitmap>
+<bitmap id="hair4_blonde" filename="hair4.png" dithering="none">
+    <palette>
+        <color>E7E014</color>
+    </palette>
+</bitmap>
+<bitmap id="hair5_blonde" filename="hair5.png" dithering="none">
+    <palette>
+        <color>E7E014</color>
+    </palette>
+</bitmap>
+
+<!-- Hair Black -->
+<bitmap id="hair0_black" filename="hair0.png" dithering="none">
+    <palette>
+        <color>1F1212</color>
+    </palette>
+</bitmap>
+<bitmap id="hair1_black" filename="hair1.png" dithering="none">
+    <palette>
+        <color>1F1212</color>
+    </palette>
+</bitmap>
+<bitmap id="hair2_black" filename="hair2.png" dithering="none">
+    <palette>
+        <color>1F1212</color>
+    </palette>
+</bitmap>
+<bitmap id="hair3_black" filename="hair3.png" dithering="none">
+    <palette>
+        <color>1F1212</color>
+    </palette>
+</bitmap>
+<bitmap id="hair4_black" filename="hair4.png" dithering="none">
+    <palette>
+        <color>1F1212</color>
+    </palette>
+</bitmap>
+<bitmap id="hair5_black" filename="hair5.png" dithering="none">
+    <palette>
+        <color>1F1212</color>
+    </palette>
+</bitmap>
+
+<!-- Hair Brown -->
+<bitmap id="hair0_brown" filename="hair0.png" dithering="none">
+    <palette>
+        <color>5E3004</color>
+    </palette>
+</bitmap>
+<bitmap id="hair1_brown" filename="hair1.png" dithering="none">
+    <palette>
+        <color>5E3004</color>
+    </palette>
+</bitmap>
+<bitmap id="hair2_brown" filename="hair2.png" dithering="none">
+    <palette>
+        <color>5E3004</color>
+    </palette>
+</bitmap>
+<bitmap id="hair3_brown" filename="hair3.png" dithering="none">
+    <palette>
+        <color>5E3004</color>
+    </palette>
+</bitmap>
+<bitmap id="hair4_brown" filename="hair4.png" dithering="none">
+    <palette>
+        <color>5E3004</color>
+    </palette>
+</bitmap>
+<bitmap id="hair5_brown" filename="hair5.png" dithering="none">
+    <palette>
+        <color>5E3004</color>
+    </palette>
+</bitmap>
+
+<!-- Hair Honeyblonde -->
+<bitmap id="hair0_honeyblonde" filename="hair0.png" dithering="none">
+    <palette>
+        <color>BD620C</color>
+    </palette>
+</bitmap>
+<bitmap id="hair1_honeyblonde" filename="hair1.png" dithering="none">
+    <palette>
+        <color>BD620C</color>
+    </palette>
+</bitmap>
+<bitmap id="hair2_honeyblonde" filename="hair2.png" dithering="none">
+    <palette>
+        <color>BD620C</color>
+    </palette>
+</bitmap>
+<bitmap id="hair3_honeyblonde" filename="hair3.png" dithering="none">
+    <palette>
+        <color>BD620C</color>
+    </palette>
+</bitmap>
+<bitmap id="hair4_honeyblonde" filename="hair4.png" dithering="none">
+    <palette>
+        <color>BD620C</color>
+    </palette>
+</bitmap>
+<bitmap id="hair5_honeyblonde" filename="hair5.png" dithering="none">
+    <palette>
+        <color>BD620C</color>
+    </palette>
+</bitmap>
+
+<!-- Hair Blue -->
+<bitmap id="hair0_blue" filename="hair0.png" dithering="none">
+    <palette>
+        <color>0068FF</color>
+    </palette>
+</bitmap>
+<bitmap id="hair1_blue" filename="hair1.png" dithering="none">
+    <palette>
+        <color>0068FF</color>
+    </palette>
+</bitmap>
+<bitmap id="hair2_blue" filename="hair2.png" dithering="none">
+    <palette>
+        <color>0068FF</color>
+    </palette>
+</bitmap>
+<bitmap id="hair3_blue" filename="hair3.png" dithering="none">
+    <palette>
+        <color>0068FF</color>
+    </palette>
+</bitmap>
+<bitmap id="hair4_blue" filename="hair4.png" dithering="none">
+    <palette>
+        <color>0068FF</color>
+    </palette>
+</bitmap>
+<bitmap id="hair5_blue" filename="hair5.png" dithering="none">
+    <palette>
+        <color>0068FF</color>
+    </palette>
+</bitmap>
+
+<!-- Hair Pink -->
+<bitmap id="hair0_pink" filename="hair0.png" dithering="none">
+    <palette>
+        <color>B6358B</color>
+    </palette>
+</bitmap>
+<bitmap id="hair1_pink" filename="hair1.png" dithering="none">
+    <palette>
+        <color>B6358B</color>
+    </palette>
+</bitmap>
+<bitmap id="hair2_pink" filename="hair2.png" dithering="none">
+    <palette>
+        <color>B6358B</color>
+    </palette>
+</bitmap>
+<bitmap id="hair3_pink" filename="hair3.png" dithering="none">
+    <palette>
+        <color>B6358B</color>
+    </palette>
+</bitmap>
+<bitmap id="hair4_pink" filename="hair4.png" dithering="none">
+    <palette>
+        <color>B6358B</color>
+    </palette>
+</bitmap>
+<bitmap id="hair5_pink" filename="hair5.png" dithering="none">
+    <palette>
+        <color>B6358B</color>
+    </palette>
+</bitmap>
+
+<!-- Hair Red -->
+<bitmap id="hair0_red" filename="hair0.png" dithering="none">
+    <palette>
+        <color>FF4747</color>
+    </palette>
+</bitmap>
+<bitmap id="hair1_red" filename="hair1.png" dithering="none">
+    <palette>
+        <color>FF4747</color>
+    </palette>
+</bitmap>
+<bitmap id="hair2_red" filename="hair2.png" dithering="none">
+    <palette>
+        <color>FF4747</color>
+    </palette>
+</bitmap>
+<bitmap id="hair3_red" filename="hair3.png" dithering="none">
+    <palette>
+        <color>FF4747</color>
+    </palette>
+</bitmap>
+<bitmap id="hair4_red" filename="hair4.png" dithering="none">
+    <palette>
+        <color>FF4747</color>
+    </palette>
+</bitmap>
+<bitmap id="hair5_red" filename="hair5.png" dithering="none">
+    <palette>
+        <color>FF4747</color>
+    </palette>
+</bitmap>
+
+<!-- Hair Green -->
+<bitmap id="hair0_green" filename="hair0.png" dithering="none">
+    <palette>
+        <color>44AD4A</color>
+    </palette>
+</bitmap>
+<bitmap id="hair1_green" filename="hair1.png" dithering="none">
+    <palette>
+        <color>44AD4A</color>
+    </palette>
+</bitmap>
+<bitmap id="hair2_green" filename="hair2.png" dithering="none">
+    <palette>
+        <color>44AD4A</color>
+    </palette>
+</bitmap>
+<bitmap id="hair3_green" filename="hair3.png" dithering="none">
+    <palette>
+        <color>44AD4A</color>
+    </palette>
+</bitmap>
+<bitmap id="hair4_green" filename="hair4.png" dithering="none">
+    <palette>
+        <color>44AD4A</color>
+    </palette>
+</bitmap>
+<bitmap id="hair5_green" filename="hair5.png" dithering="none">
+    <palette>
+        <color>44AD4A</color>
+    </palette>
+</bitmap>
+
+<!-- Hair Purple -->
+<bitmap id="hair0_purple" filename="hair0.png" dithering="none">
+    <palette>
+        <color>8F739A</color>
+    </palette>
+</bitmap>
+<bitmap id="hair1_purple" filename="hair1.png" dithering="none">
+    <palette>
+        <color>8F739A</color>
+    </palette>
+</bitmap>
+<bitmap id="hair2_purple" filename="hair2.png" dithering="none">
+    <palette>
+        <color>8F739A</color>
+    </palette>
+</bitmap>
+<bitmap id="hair3_purple" filename="hair3.png" dithering="none">
+    <palette>
+        <color>8F739A</color>
+    </palette>
+</bitmap>
+<bitmap id="hair4_purple" filename="hair4.png" dithering="none">
+    <palette>
+        <color>8F739A</color>
+    </palette>
+</bitmap>
+<bitmap id="hair5_purple" filename="hair5.png" dithering="none">
+    <palette>
+        <color>8F739A</color>
+    </palette>
+</bitmap>
+
+<!-- Hair White -->
+<bitmap id="hair0_white" filename="hair0.png" dithering="none">
+    <palette>
+        <color>FFFFFF</color>
+    </palette>
+</bitmap>
+<bitmap id="hair1_white" filename="hair1.png" dithering="none">
+    <palette>
+        <color>FFFFFF</color>
+    </palette>
+</bitmap>
+<bitmap id="hair2_white" filename="hair2.png" dithering="none">
+    <palette>
+        <color>FFFFFF</color>
+    </palette>
+</bitmap>
+<bitmap id="hair3_white" filename="hair3.png" dithering="none">
+    <palette>
+        <color>FFFFFF</color>
+    </palette>
+</bitmap>
+<bitmap id="hair4_white" filename="hair4.png" dithering="none">
+    <palette>
+        <color>FFFFFF</color>
+    </palette>
+</bitmap>
+<bitmap id="hair5_white" filename="hair5.png" dithering="none">
+    <palette>
+        <color>FFFFFF</color>
+    </palette>
+</bitmap>
+<!-- Head Fair -->
+<bitmap id="head_fair" filename="head.png" dithering="none">
+    <palette>
+        <color>FECE90</color>
+        <color>F5B3FD</color>
+    </palette>
+</bitmap>
+
+<!-- Head Medium -->
+<bitmap id="head_medium" filename="head.png" dithering="none">
+    <palette>
+        <color>E08744</color>
+    </palette>
+</bitmap>
+
+<!-- Head Dark -->
+<bitmap id="head_dark" filename="head.png" dithering="none">
+    <palette>
+        <color>9B541E</color>
+    </palette>
+</bitmap>
+
+<!-- Head Phantom -->
+<bitmap id="head_phantom" filename="head.png" dithering="none">
+    <palette>
+        <color>000000</color>
+    </palette>
+</bitmap>
+
+<!-- Head Pink -->
+<bitmap id="head_pink" filename="head.png" dithering="none">
+    <palette>
+        <color>FFC1EF</color>
+    </palette>
+</bitmap>
+
+<!-- Head Green -->
+<bitmap id="head_green" filename="head.png" dithering="none">
+    <palette>
+        <color>DFFFC1</color>
+    </palette>
+</bitmap>
+
+<!-- Head Blue -->
+<bitmap id="head_blue" filename="head.png" dithering="none">
+    <palette>
+        <color>1C9BC2</color>
+    </palette>
+</bitmap>
+
+<!-- Arms0 for Fair skin tone -->
+<bitmap id="arms0_fair" filename="arms0.png" dithering="none">
+    <palette>
+        <color>FECE90</color> <!-- Fair Skin -->
+        <color>C5CAE9</color> <!-- Added Color -->
+        <color>9FA8DA</color> <!-- Added Color -->
+        <color>D44B00</color> <!-- Added Color -->
+        <color>EF6C00</color> <!-- Added Color -->
+        <color>FFB300</color> <!-- Added Color -->
+    </palette>
+</bitmap>
+
+<!-- Arms0 for Medium skin tone -->
+<bitmap id="arms0_medium" filename="arms0.png" dithering="none">
+    <palette>
+        <color>E08744</color> <!-- Medium Skin -->
+        <color>C5CAE9</color> <!-- Added Color -->
+        <color>9FA8DA</color> <!-- Added Color -->
+        <color>D44B00</color> <!-- Added Color -->
+        <color>EF6C00</color> <!-- Added Color -->
+        <color>FFB300</color> <!-- Added Color -->
+    </palette>
+</bitmap>
+
+<!-- Arms0 for Dark skin tone -->
+<bitmap id="arms0_dark" filename="arms0.png" dithering="none">
+    <palette>
+        <color>9B541E</color> <!-- Dark Skin -->
+        <color>C5CAE9</color> <!-- Added Color -->
+        <color>9FA8DA</color> <!-- Added Color -->
+        <color>D44B00</color> <!-- Added Color -->
+        <color>EF6C00</color> <!-- Added Color -->
+        <color>FFB300</color> <!-- Added Color -->
+    </palette>
+</bitmap>
+
+<!-- Arms0 for Phantom skin tone -->
+<bitmap id="arms0_phantom" filename="arms0.png" dithering="none">
+    <palette>
+        <color>000000</color> <!-- Phantom Skin -->
+        <color>C5CAE9</color> <!-- Added Color -->
+        <color>9FA8DA</color> <!-- Added Color -->
+        <color>D44B00</color> <!-- Added Color -->
+        <color>EF6C00</color> <!-- Added Color -->
+        <color>FFB300</color> <!-- Added Color -->
+    </palette>
+</bitmap>
+
+<!-- Arms0 for Pink color -->
+<bitmap id="arms0_pink" filename="arms0.png" dithering="none">
+    <palette>
+        <color>FFC1EF</color> <!-- Pink -->
+        <color>C5CAE9</color> <!-- Added Color -->
+        <color>9FA8DA</color> <!-- Added Color -->
+        <color>D44B00</color> <!-- Added Color -->
+        <color>EF6C00</color> <!-- Added Color -->
+        <color>FFB300</color> <!-- Added Color -->
+    </palette>
+</bitmap>
+
+<!-- Arms0 for Green color -->
+<bitmap id="arms0_green" filename="arms0.png" dithering="none">
+    <palette>
+        <color>DFFFC1</color> <!-- Green -->
+        <color>C5CAE9</color> <!-- Added Color -->
+        <color>9FA8DA</color> <!-- Added Color -->
+        <color>D44B00</color> <!-- Added Color -->
+        <color>EF6C00</color> <!-- Added Color -->
+        <color>FFB300</color> <!-- Added Color -->
+    </palette>
+</bitmap>
+
+<!-- Arms0 for Blue color -->
+<bitmap id="arms0_blue" filename="arms0.png" dithering="none">
+    <palette>
+        <color>1C9BC2</color> <!-- Blue -->
+        <color>C5CAE9</color> <!-- Added Color -->
+        <color>9FA8DA</color> <!-- Added Color -->
+        <color>D44B00</color> <!-- Added Color -->
+        <color>EF6C00</color> <!-- Added Color -->
+        <color>FFB300</color> <!-- Added Color -->
+    </palette>
+</bitmap>
+
+<!-- Arms1 for Fair skin tone -->
+<bitmap id="arms1_fair" filename="arms1.png" dithering="none">
+    <palette>
+        <color>FECE90</color> <!-- Fair Skin -->
+        <color>C5CAE9</color> <!-- Added Color -->
+        <color>9FA8DA</color> <!-- Added Color -->
+        <color>D44B00</color> <!-- Added Color -->
+        <color>EF6C00</color> <!-- Added Color -->
+        <color>FFB300</color> <!-- Added Color -->
+    </palette>
+</bitmap>
+
+<!-- Arms1 for Medium skin tone -->
+<bitmap id="arms1_medium" filename="arms1.png" dithering="none">
+    <palette>
+        <color>E08744</color> <!-- Medium Skin -->
+        <color>C5CAE9</color> <!-- Added Color -->
+        <color>9FA8DA</color> <!-- Added Color -->
+        <color>D44B00</color> <!-- Added Color -->
+        <color>EF6C00</color> <!-- Added Color -->
+        <color>FFB300</color> <!-- Added Color -->
+    </palette>
+</bitmap>
+
+<!-- Arms1 for Dark skin tone -->
+<bitmap id="arms1_dark" filename="arms1.png" dithering="none">
+    <palette>
+        <color>9B541E</color> <!-- Dark Skin -->
+        <color>C5CAE9</color> <!-- Added Color -->
+        <color>9FA8DA</color> <!-- Added Color -->
+        <color>D44B00</color> <!-- Added Color -->
+        <color>EF6C00</color> <!-- Added Color -->
+        <color>FFB300</color> <!-- Added Color -->
+    </palette>
+</bitmap>
+
+<!-- Arms1 for Phantom skin tone -->
+<bitmap id="arms1_phantom" filename="arms1.png" dithering="none">
+    <palette>
+        <color>000000</color> <!-- Phantom Skin -->
+        <color>C5CAE9</color> <!-- Added Color -->
+        <color>9FA8DA</color> <!-- Added Color -->
+        <color>D44B00</color> <!-- Added Color -->
+        <color>EF6C00</color> <!-- Added Color -->
+        <color>FFB300</color> <!-- Added Color -->
+    </palette>
+</bitmap>
+
+<!-- Arms1 for Pink color -->
+<bitmap id="arms1_pink" filename="arms1.png" dithering="none">
+    <palette>
+        <color>FFC1EF</color> <!-- Pink -->
+        <color>C5CAE9</color> <!-- Added Color -->
+        <color>9FA8DA</color> <!-- Added Color -->
+        <color>D44B00</color> <!-- Added Color -->
+        <color>EF6C00</color> <!-- Added Color -->
+        <color>FFB300</color> <!-- Added Color -->
+    </palette>
+</bitmap>
+
+<!-- Arms1 for Green color -->
+<bitmap id="arms1_green" filename="arms1.png" dithering="none">
+    <palette>
+        <color>DFFFC1</color> <!-- Green -->
+        <color>C5CAE9</color> <!-- Added Color -->
+        <color>9FA8DA</color> <!-- Added Color -->
+        <color>D44B00</color> <!-- Added Color -->
+        <color>EF6C00</color> <!-- Added Color -->
+        <color>FFB300</color> <!-- Added Color -->
+    </palette>
+</bitmap>
+
+<!-- Arms1 for Blue color -->
+<bitmap id="arms1_blue" filename="arms1.png" dithering="none">
+    <palette>
+        <color>1C9BC2</color> <!-- Blue -->
+        <color>C5CAE9</color> <!-- Added Color -->
+        <color>9FA8DA</color> <!-- Added Color -->
+        <color>D44B00</color> <!-- Added Color -->
+        <color>EF6C00</color> <!-- Added Color -->
+        <color>FFB300</color> <!-- Added Color -->
+    </palette>
+</bitmap>
+<!-- Legs2 for Fair skin tone -->
+<bitmap id="legs2_fair" filename="legs2.png" dithering="none">
+    <palette>
+        <color>FECE90</color> <!-- Fair Skin -->
+        <color>000000</color> <!-- Added Color -->
+        <color>FFFFFF</color> <!-- Added Color -->
+    </palette>
+</bitmap>
+
+<!-- Legs2 for Medium skin tone -->
+<bitmap id="legs2_medium" filename="legs2.png" dithering="none">
+    <palette>
+        <color>E08744</color> <!-- Medium Skin -->
+        <color>000000</color> <!-- Added Color -->
+        <color>FFFFFF</color> <!-- Added Color -->
+    </palette>
+</bitmap>
+
+<!-- Legs2 for Dark skin tone -->
+<bitmap id="legs2_dark" filename="legs2.png" dithering="none">
+    <palette>
+        <color>9B541E</color> <!-- Dark Skin -->
+        <color>000000</color> <!-- Added Color -->
+        <color>FFFFFF</color> <!-- Added Color -->
+    </palette>
+</bitmap>
+
+<!-- Legs2 for Phantom skin tone -->
+<bitmap id="legs2_phantom" filename="legs2.png" dithering="none">
+    <palette>
+        <color>000000</color> <!-- Phantom Skin -->
+        <color>FFFFFF</color> <!-- Added Color -->
+        <color>000000</color> <!-- Added Color (repeated) -->
+    </palette>
+</bitmap>
+
+<!-- Legs2 for Pink color -->
+<bitmap id="legs2_pink" filename="legs2.png" dithering="none">
+    <palette>
+        <color>FFC1EF</color> <!-- Pink -->
+        <color>000000</color> <!-- Added Color -->
+        <color>FFFFFF</color> <!-- Added Color -->
+    </palette>
+</bitmap>
+
+<!-- Legs2 for Green color -->
+<bitmap id="legs2_green" filename="legs2.png" dithering="none">
+    <palette>
+        <color>DFFFC1</color> <!-- Green -->
+        <color>000000</color> <!-- Added Color -->
+        <color>FFFFFF</color> <!-- Added Color -->
+    </palette>
+</bitmap>
+
+<!-- Legs2 for Blue color -->
+<bitmap id="legs2_blue" filename="legs2.png" dithering="none">
+    <palette>
+        <color>1C9BC2</color> <!-- Blue -->
+        <color>000000</color> <!-- Added Color -->
+        <color>FFFFFF</color> <!-- Added Color -->
+    </palette>
+</bitmap>
+
+
+</drawables>
+  
