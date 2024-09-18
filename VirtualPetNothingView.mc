@@ -10,23 +10,36 @@ import Toybox.Time.Gregorian;
 import Toybox.UserProfile;
 
 enum {
-  PonyTail     = 0,
-  CandyHair    = 1,
-  BoneHair     = 2,
-  BunHair      = 3,
-  
-  NormalHands  = 0,
-  FunHands     = 1,
-  WaveHands    = 2,
-  NoHands      = 3,
+//hair colors
+BrownHair       = 0,
+HoneyBlondeHair = 1,
+BlondeHair      = 2,
+BlackHair       = 3,
+RedHair         = 4,
+PinkHair        = 5,
+BlueHair        = 6,
+GreenHair       = 7,
+PurpleHair      = 8,
+WhiteHair       = 9,
 
-  GhostGirl    = 0,
-  GhostGuy     = 1,
+// Eye Colors
+BlackEyes   = 0,
+BrownEyes   = 1,
+BlueEyes    = 2,
+GreenEyes   = 3,
+YellowEyes  = 4,
+PurpleEyes  = 5,
+GreyEyes    = 6,
+PinkEyes    = 7,
+RedEyes     = 8,
 
+
+//candyflow
   TooMuchCandy = 0,
   SomeCandy    = 1,
   NoCandy      = 2,
 
+  //candy
 GreenAppleEye   = 0,
 ChocolateEye    = 1,
 RaspberryEye    = 2,
@@ -37,15 +50,68 @@ EyeCandy        = 6,
 SkullCandy      = 7,
 SourPotion      = 8,
 RainbowEye      = 9,
-ScaryPumpkinPop = 10
+ScaryPumpkinPop = 10,
+
+// Hair Types
+Hair0        = 0,
+Hair1        = 1,
+Hair2        = 2,
+Hair3        = 3,
+Hair4        = 4,
+Hair5        = 5,
+
+// Dress Styles
+DressStyle1 = 0,
+DressStyle2 = 1,
+DressStyle3 = 2,
+BoyClothes  = 3,
+
+// Bangs Styles
+Bangs1      = 0,
+Bangs2      = 1,
+Bangs3      = 2,
+BoyHair     = 3,
+
+// Skin Tones
+SkinFair    = 0,
+SkinMed     = 1,
+SkinDark    = 2,
+SkinGreen   = 3,
+SkinBlue    = 4,
+SkinPink    = 5,
+SkinPhantom = 6,
+
+// Hair Accessories
+HairPieceNone = 0,
+HairPiece1    = 1,
+HairPiece2    = 2,
+HairPiece3    = 3,
+
+// Socks and Skin Options
+Girly       = 0,
+Boyish        = 1,
+
+// Animal Options
+Duck        = 0,
+Chicken     = 1,
+Pig         = 2,
+Cat         = 3,
+Butterfly   = 4,
+Mouse       = 5,
+Frog        = 6
+
 }
 
-var character = 0;
+var eyes = 0;
 var candy = 0;
 var hair = 0;
-var hands = 0;
-var sleepcandy = 0;
-
+var bangs= 0;
+var skin=0;
+var pet=0;
+var haircolor=0;
+var clothes=0;
+var hairpiece=1;
+var legs=0;
 
 class VirtualPetNothingView extends WatchUi.WatchFace {
   
@@ -65,12 +131,16 @@ function onUpdate(dc as Dc) as Void {
                                            */
 
     /*----------System Variables------------------------------*/
-
-character = readKeyInt(Toybox.Application.getApp(),"character",0);
-candy = readKeyInt(Toybox.Application.getApp(),"candy",0);
-sleepcandy = readKeyInt(Toybox.Application.getApp(),"sleepcandy",0);
-hair = readKeyInt(Toybox.Application.getApp(),"hair",0);
-hands = readKeyInt(Toybox.Application.getApp(),"hands",0);
+// New variables
+var eyes = readKeyInt(Toybox.Application.getApp(), "eyes", 0);
+var bangs = readKeyInt(Toybox.Application.getApp(), "bangs", 0);
+var skin = readKeyInt(Toybox.Application.getApp(), "skin", 0);
+var pet = readKeyInt(Toybox.Application.getApp(), "pet", 0);
+var haircolor = readKeyInt(Toybox.Application.getApp(), "haircolor", 0);
+var clothes = readKeyInt(Toybox.Application.getApp(), "clothes", 0);
+var hairpiece = readKeyInt(Toybox.Application.getApp(), "hairpiece", 1);
+var candy = readKeyInt(Toybox.Application.getApp(), "candy", 0);
+var legs = readKeyInt(Toybox.Application.getApp(), "legs", 0);
     var mySettings = System.getDeviceSettings();
     var screenHeightY = (System.getDeviceSettings().screenHeight)/360;
     var screenWidthX = (System.getDeviceSettings().screenWidth)/360;
@@ -200,66 +270,85 @@ hands = readKeyInt(Toybox.Application.getApp(),"hands",0);
     \__,_|_|  \__,_| \_/\_/    \___|_|\___/ \___|_|\_\
                                                    */
 
-   //Draw Background
-  
-    var water= waterPhase();
-    water.draw(dc);
-    
-    //Draw Sprite
-     if (clockTime.hour < 6) {
+ //Every 360 Steps Pikachu Levels up
+ userSTEPS=9000;
 
-    var sleep = sleepPhase(character); //userSTEPS or (today.sec*180) fix 15 and 16 and 17 to be higher
-    sleep.draw(dc);
-    
-    if (character == 0){    
-    var hairy = hairPhase(hair);
-    hairy.draw(dc);
-     var handy = handPhase(0);
-     handy.draw(dc); }
-    
-      //Candy Rain  
-   if (candy == 2){}
-   else if (candy == 0) {
-    var goal2 = goalPhase(6, today.sec, sleepcandy*1000); //userSTEPS or (today.sec*180) fix 15 and 16 and 17 to be higher
-    goal2.draw(dc);
-    var goal = goalPhase(3, (today.sec)+13, sleepcandy*1000); //userSTEPS or (today.sec*180) fix 15 and 16 and 17 to be higher
-    goal.draw(dc);
-     var goal3 = goalPhase(1, today.sec+25, sleepcandy*1000); //userSTEPS or (today.sec*180) fix 15 and 16 and 17 to be higher
-    goal3.draw(dc);
-     }else{ var goal2 = goalPhase(6, today.sec, sleepcandy*1000); //userSTEPS or (today.sec*180) fix 15 and 16 and 17 to be higher
-    goal2.draw(dc);}
-    
-     }else{
-   //Sprite
-   if (character == 1){
-    var dog = dogPhase(today.min); //userSTEPS or (today.sec*180) fix 15 and 16 and 17 to be higher
-    dog.draw(dc);
-   }else{
-    var doll = dollPhase(today.min); //userSTEPS or (today.sec*180) fix 15 and 16 and 17 to be higher
-    doll.draw(dc);
-    var hairy = hairPhase(hair);
-    hairy.draw(dc);
-    if (hands==3){}else{
-    var handy = handPhase(hands);
-    handy.draw(dc);
-    }
-   }
 
-   //Candy Rain  
-   if (candy == 2){}
-   else if (candy == 0) {
-    var goal2 = goalPhase(6, today.sec, userSTEPS); //userSTEPS or (today.sec*180) fix 15 and 16 and 17 to be higher
-    goal2.draw(dc);
+    dc.setPenWidth(20);
+    dc.setColor(0x3D3C0C, Graphics.COLOR_TRANSPARENT);
+    dc.drawCircle(centerX, centerX, centerX*270/360);
+    dc.setPenWidth(20);
+   dc.setColor(0x2F302F, Graphics.COLOR_TRANSPARENT);
+    dc.drawCircle(centerX, centerX, centerX*340/360);
 
-    var goal = goalPhase(3, (today.sec)+13, userSTEPS); //userSTEPS or (today.sec*180) fix 15 and 16 and 17 to be higher
-    goal.draw(dc);
+//var monsters = monsterPhase(userSTEPS/1000, today.min);
+//monsters.draw(dc);
 
-     var goal3 = goalPhase(1, today.sec+25, userSTEPS); //userSTEPS or (today.sec*180) fix 15 and 16 and 17 to be higher
-    goal3.draw(dc);
-     }else{ var goal2 = goalPhase(6, today.sec, userSTEPS); //userSTEPS or (today.sec*180) fix 15 and 16 and 17 to be higher
-    goal2.draw(dc);}
-     }
- 
+     dc.setPenWidth(8);
+    dc.setColor(0x6F706F, Graphics.COLOR_TRANSPARENT);
+    dc.drawCircle(centerX, centerX, centerX*360/360);
+     dc.setPenWidth(20);
+    dc.setColor(0x00D10D, Graphics.COLOR_TRANSPARENT);
+    dc.drawArc(centerX, centerX, centerX*340/360, Graphics.ARC_CLOCKWISE, 1, -((userSTEPS+2)/1000)*36 ); 
+     dc.setPenWidth(8);
+    dc.setColor(0x4FDF58, Graphics.COLOR_TRANSPARENT);
+    dc.drawArc(centerX, centerX, centerX*340/360, Graphics.ARC_CLOCKWISE, 1, -((userSTEPS+2)/1000)*36 ); 
+if (bangs != BoyHair) {
+  var hairs= hair0Phase(0);
+if (hair ==0){hairs = hair0Phase(haircolor);}
+else if (hair ==1){ hairs = hair1Phase(haircolor);}
+else if (hair ==2){ hairs = hair2Phase(haircolor);}
+else if (hair ==3){ hairs = hair3Phase(haircolor);}
+else if (hair ==4){ hairs = hair4Phase(haircolor);}
+else if (hair ==5){ hairs = hair5Phase(haircolor);}
+else{ hairs = hair3Phase(haircolor);}
+hairs.draw(dc);
+}
+var leg = legPhase(0);
+if (legs==1){leg = legPhase(2+skin);}else{leg = legPhase(today.min%2);}
+leg.draw(dc);
+
+var costume = dressPhase(clothes);
+costume.draw(dc);
+
+var head = headPhase(skin);
+head.draw(dc);
+
+var bangy = boysPhase();
+if (bangs != BoyHair) {
+  if (bangs == 0){bangy = bangs0Phase(haircolor);}
+  else if (bangs == 1){bangy = bangs1Phase(haircolor);}
+  else if (bangs == 2){ bangy = bangs2Phase(haircolor);}
+  else if (bangs == 3){bangy = bangs3Phase(haircolor);}
+  else { bangy = bangs1Phase(haircolor);}
+}
+bangy.draw(dc);
+
+
+
+if (today.min%2==0){
+var arm = arms0Phase(0);
+arm.draw(dc);
+}else{
+var arm = arms1Phase(0);
+arm.draw(dc);
+}
+var eyeball= eyesPhase(eyes);
+eyeball.draw(dc);
+
+if (hairpiece>0){
+var charmy = charmPhase(hairpiece+1);
+charmy.draw(dc);
+}
+
+var animal = petPhase(pet);
+animal.draw(dc);
+
+
+
+
+
+
 
    //Draw Moon and Battery
     moon1.draw(dc);
@@ -267,12 +356,12 @@ hands = readKeyInt(Toybox.Application.getApp(),"hands",0);
     //hours=hours+2;
     
 if (System.getDeviceSettings().is24Hour || hours/10> 0){
-    shift = -20;
+    shift = 0;
     var digitHour=(digitPhase(hours/10,-115+shift));
     digitHour.draw(dc);
      } 
 
-    var digitColon=(digitPhase(10,-20+shift));
+    var digitColon=(digitPhase(10,-25+shift));
     digitColon.draw(dc);
     
 
@@ -281,8 +370,9 @@ if (System.getDeviceSettings().is24Hour || hours/10> 0){
 
     var digitSec=(digitPhase(today.min/10,25+shift));
     digitSec.draw(dc);
-    var digitSecT=(digitPhase(today.min%10,85+shift));
+    var digitSecT=(digitPhase(today.min%10,75+shift));
     digitSecT.draw(dc);
+
 
    
    if (System.getDeviceSettings().screenWidth == 320){
@@ -295,14 +385,15 @@ if (System.getDeviceSettings().is24Hour || hours/10> 0){
    }else{
          //Draw Top Font with shadow
     dc.setColor(0x2A3088, Graphics.COLOR_TRANSPARENT);  
-    dc.drawText( 221 *screenWidthX+venus2XL,(40*screenHeightY)+venus2XL, wordFont, (TEMP+" " +FC), Graphics.TEXT_JUSTIFY_CENTER );
+    dc.drawText( 221 *screenWidthX+venus2XL,(40*screenHeightY)+venus2XL+15, wordFont, (TEMP+" " +FC), Graphics.TEXT_JUSTIFY_CENTER );
     dc.setColor(0xFFFFFF, Graphics.COLOR_TRANSPARENT);
-    dc.drawText( centerX-2,0, bigFont, weather(cond), Graphics.TEXT_JUSTIFY_CENTER );
-  if (System.getDeviceSettings().screenWidth == 454){
-  dc.drawText(centerX,(78*screenHeightY)+(venus2XL*2),wordFont,(weekdayArray[today.day_of_week]+" , "+ monthArray[today.month]+" "+ today.day +" " +today.year), Graphics.TEXT_JUSTIFY_CENTER );}
-    dc.drawText(  (45 *screenWidthX), 150*screenHeightY, funFont,  userHEART, Graphics.TEXT_JUSTIFY_CENTER );
-    dc.drawText( (45 *screenWidthX), 224*screenHeightY, funFont,  (userSTEPS), Graphics.TEXT_JUSTIFY_CENTER );
-   }
+    dc.drawText( centerX-2,15, bigFont, weather(cond), Graphics.TEXT_JUSTIFY_CENTER );
+     dc.drawText(centerX,(78*screenHeightY)+(venus2XL*2)+15,wordFont,(weekdayArray[today.day_of_week]+" , "+ monthArray[today.month]+" "+ today.day +" " +today.year), Graphics.TEXT_JUSTIFY_CENTER );}
+ // if (System.getDeviceSettings().screenWidth == 454){
+  //dc.drawText(centerX,(78*screenHeightY)+(venus2XL*2),wordFont,(weekdayArray[today.day_of_week]+" , "+ monthArray[today.month]+" "+ today.day +" " +today.year), Graphics.TEXT_JUSTIFY_CENTER );}
+   // dc.drawText(  (45 *screenWidthX), 150*screenHeightY, funFont,  userHEART, Graphics.TEXT_JUSTIFY_CENTER );
+    //dc.drawText( (45 *screenWidthX), 224*screenHeightY, funFont,  (userSTEPS), Graphics.TEXT_JUSTIFY_CENTER );
+  // }
     /*---------------Draw Battery---------------*/
 if (System.getDeviceSettings().screenWidth == 320){
  if (batteryMeter >= 10 && batteryMeter <= 32) {
@@ -323,11 +414,11 @@ if (System.getDeviceSettings().screenWidth == 320){
     if (batteryMeter >= 10 && batteryMeter <= 32) {
         //Red
         dc.setColor(0xB00B1E, Graphics.COLOR_TRANSPARENT); 
-        dc.fillRectangle(centerX * 350 / 360, (centerX * 88 / 360)+venus2XL, 9, 15);
+        dc.fillRectangle(centerX * 350 / 360, (centerX * 88 / 360)+venus2XL+15, 9, 15);
     } else if (batteryMeter >= 33 && batteryMeter <= 65) {
        //Yellow
        dc.setColor(0xFFFF00, Graphics.COLOR_TRANSPARENT); 
-        dc.fillRectangle(centerX * 350 / 360, (centerX * 88 / 360)+venus2XL, 9,15 );
+        dc.fillRectangle(centerX * 350 / 360, (centerX * 88 / 360)+venus2XL+15, 9,15 );
     } else if (batteryMeter >= 66) {
        //Nothing
     }else{
@@ -370,61 +461,14 @@ function weather(cond) {
    \__,_|_|  \__,_| \_/\_/   | .__/|_| |_|\__, |
                              |_|          |___/ */
 
-//DrawOpacityGraphic - dog -
-function dogPhase(minutes){
+function charmPhase(charm) {
   var screenHeightY = System.getDeviceSettings().screenHeight;
-  var screenWidthX = System.getDeviceSettings().screenWidth;
-  var venus2X = 0;
-  //var venus2X = (screenWidthX)-((seconds%20)*20);
-  var venus2Y = 0;
-
-
-      if (screenHeightY == 390){
-   venus2Y = venus2Y+30;
-   venus2X = venus2X+20;}
-
-       if (screenHeightY == 416){
-   venus2Y = venus2Y+60;
-   venus2X = venus2X+50;}
-
-    if (screenHeightY == 454){
-   venus2Y = venus2Y+85;
-   venus2X = venus2X+60;}
-
-var dogARRAY = [
-   (new WatchUi.Bitmap({
-    :rezId => Rez.Drawables.dog0,
-    :locX => venus2X,
-    :locY => venus2Y
-})),
-(new WatchUi.Bitmap({
-    :rezId => Rez.Drawables.dog1,
-    :locX => venus2X,
-    :locY => venus2Y
-})),
-(new WatchUi.Bitmap({
-    :rezId => Rez.Drawables.dog2,
-    :locX => venus2X,
-    :locY => venus2Y
-})),
-(new WatchUi.Bitmap({
-    :rezId => Rez.Drawables.dog3,
-    :locX => venus2X,
-    :locY => venus2Y
-}))
-];
-    return dogARRAY[minutes%4 ];   
-}
-
-//DrawOpacityGraphic - doll -
-function dollPhase(minutes) {
-  var screenHeightY = System.getDeviceSettings().screenHeight;
-  var screenWidthX = System.getDeviceSettings().screenWidth;
+  //var screenWidthX = System.getDeviceSettings().screenWidth;
   var venus2X = 30;
   var venus2Y = 0;
 
   if (screenHeightY == 390) {
-    venus2Y = venus2Y +30;
+    venus2Y = venus2Y + 30;
     venus2X = venus2X + 10;
   }
 
@@ -433,42 +477,169 @@ function dollPhase(minutes) {
     venus2X = venus2X + 10;
   }
 
+  if (screenHeightY == 454) {
+    venus2Y = venus2Y + 90;
+    venus2X = venus2X + 40;
+  }
+  var charmARRAY = [
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.charm0,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.charm1,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.charm2,
+      :locX => venus2X,
+      :locY => venus2Y
+    }))
+];
+return charmARRAY[charm];
+}
+
+function headPhase(head) {
+  var screenHeightY = System.getDeviceSettings().screenHeight;
+  //var screenWidthX = System.getDeviceSettings().screenWidth;
+  var venus2X = 30;
+  var venus2Y = 0;
+
+  if (screenHeightY == 390) {
+    venus2Y = venus2Y + 30;
+    venus2X = venus2X + 10;
+  }
+
+  if (screenHeightY == 416) {
+    venus2Y = venus2Y + 45;
+    venus2X = venus2X + 10;
+  }
 
   if (screenHeightY == 454) {
     venus2Y = venus2Y + 90;
     venus2X = venus2X + 40;
   }
-
-  var dollARRAY = [
+ var headsARRAY = [
     (new WatchUi.Bitmap({
-      :rezId => Rez.Drawables.doll0,
+      :rezId => Rez.Drawables.head_fair,
       :locX => venus2X,
       :locY => venus2Y
     })),
     (new WatchUi.Bitmap({
-      :rezId => Rez.Drawables.doll1,
+      :rezId => Rez.Drawables.head_medium,
       :locX => venus2X,
       :locY => venus2Y
     })),
     (new WatchUi.Bitmap({
-      :rezId => Rez.Drawables.doll2,
+      :rezId => Rez.Drawables.head_dark,
       :locX => venus2X,
       :locY => venus2Y
     })),
     (new WatchUi.Bitmap({
-      :rezId => Rez.Drawables.doll3,
+      :rezId => Rez.Drawables.head_phantom,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.head_pink,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.head_green,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.head_blue,
       :locX => venus2X,
       :locY => venus2Y
     }))
-  ];
+];
 
-  return dollARRAY[minutes % 4];
+return headsARRAY[head];
 }
 
-//DrawOpacityGraphic - hand -
-function handPhase(hands) {
+function hair3Phase(hair) {
   var screenHeightY = System.getDeviceSettings().screenHeight;
-  var screenWidthX = System.getDeviceSettings().screenWidth;
+  //var screenWidthX = System.getDeviceSettings().screenWidth;
+  var venus2X = 30;
+  var venus2Y = 0;
+
+  if (screenHeightY == 390) {
+    venus2Y = venus2Y + 30;
+    venus2X = venus2X + 10;
+  }
+
+  if (screenHeightY == 416) {
+    venus2Y = venus2Y + 45;
+    venus2X = venus2X + 10;
+  }
+
+  if (screenHeightY == 454) {
+    venus2Y = venus2Y + 90;
+    venus2X = venus2X + 40;
+  }
+var hair3ARRAY = [
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair3_blonde,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair3_black,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair3_brown,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair3_honeyblonde,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair3_blue,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair3_pink,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair3_red,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair3_green,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair3_purple,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair3_white,
+      :locX => venus2X,
+      :locY => venus2Y
+    }))
+];
+
+return hair3ARRAY[hair];
+}
+
+function hair0Phase(hair) {
+  var screenHeightY = System.getDeviceSettings().screenHeight;
   var venus2X = 30;
   var venus2Y = 0;
 
@@ -487,31 +658,63 @@ function handPhase(hands) {
     venus2X = venus2X + 40;
   }
 
-  var handARRAY = [
+  var hair0ARRAY = [
     (new WatchUi.Bitmap({
-      :rezId => Rez.Drawables.hands0,
+      :rezId => Rez.Drawables.hair0_blonde,
       :locX => venus2X,
       :locY => venus2Y
     })),
     (new WatchUi.Bitmap({
-      :rezId => Rez.Drawables.hands1,
+      :rezId => Rez.Drawables.hair0_black,
       :locX => venus2X,
       :locY => venus2Y
     })),
     (new WatchUi.Bitmap({
-      :rezId => Rez.Drawables.hands2,
+      :rezId => Rez.Drawables.hair0_brown,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair0_honeyblonde,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair0_blue,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair0_pink,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair0_red,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair0_green,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair0_purple,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair0_white,
       :locX => venus2X,
       :locY => venus2Y
     }))
   ];
 
-  return handARRAY[hands];
+  return hair0ARRAY[hair];
 }
-
-//DrawOpacityGraphic - hair -
-function hairPhase(hair) {
+function hair1Phase(hair) {
   var screenHeightY = System.getDeviceSettings().screenHeight;
-  var screenWidthX = System.getDeviceSettings().screenWidth;
   var venus2X = 30;
   var venus2Y = 0;
 
@@ -530,70 +733,1034 @@ function hairPhase(hair) {
     venus2X = venus2X + 40;
   }
 
-  var hairARRAY = [
+  var hair1ARRAY = [
     (new WatchUi.Bitmap({
-      :rezId => Rez.Drawables.hair0,
+      :rezId => Rez.Drawables.hair1_blonde,
       :locX => venus2X,
       :locY => venus2Y
     })),
     (new WatchUi.Bitmap({
-      :rezId => Rez.Drawables.hair1,
+      :rezId => Rez.Drawables.hair1_black,
       :locX => venus2X,
       :locY => venus2Y
     })),
     (new WatchUi.Bitmap({
-      :rezId => Rez.Drawables.hair2,
+      :rezId => Rez.Drawables.hair1_brown,
       :locX => venus2X,
       :locY => venus2Y
     })),
     (new WatchUi.Bitmap({
-      :rezId => Rez.Drawables.hair3,
+      :rezId => Rez.Drawables.hair1_honeyblonde,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair1_blue,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair1_pink,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair1_red,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair1_green,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair1_purple,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair1_white,
       :locX => venus2X,
       :locY => venus2Y
     }))
   ];
 
-  return hairARRAY[hair];
+  return hair1ARRAY[hair];
 }
-
-//DrawOpacityGraphic - dog -
-function sleepPhase(character){
+function hair2Phase(hair) {
   var screenHeightY = System.getDeviceSettings().screenHeight;
-  var screenWidthX = System.getDeviceSettings().screenWidth;
-var venus2X = 30;
+  var venus2X = 30;
   var venus2Y = 0;
 
-
-      if (screenHeightY == 390){
-   venus2Y = venus2Y+30;
-   venus2X = venus2X+10;}
+  if (screenHeightY == 390) {
+    venus2Y = venus2Y + 30;
+    venus2X = venus2X + 10;
+  }
 
   if (screenHeightY == 416) {
     venus2Y = venus2Y + 45;
     venus2X = venus2X + 10;
   }
 
+  if (screenHeightY == 454) {
+    venus2Y = venus2Y + 90;
+    venus2X = venus2X + 40;
+  }
+
+  var hair2ARRAY = [
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair2_blonde,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair2_black,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair2_brown,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair2_honeyblonde,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair2_blue,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair2_pink,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair2_red,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair2_green,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair2_purple,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair2_white,
+      :locX => venus2X,
+      :locY => venus2Y
+    }))
+  ];
+
+  return hair2ARRAY[hair];
+}
+function hair4Phase(hair) {
+  var screenHeightY = System.getDeviceSettings().screenHeight;
+  var venus2X = 30;
+  var venus2Y = 0;
+
+  if (screenHeightY == 390) {
+    venus2Y = venus2Y + 30;
+    venus2X = venus2X + 10;
+  }
+
+  if (screenHeightY == 416) {
+    venus2Y = venus2Y + 45;
+    venus2X = venus2X + 10;
+  }
 
   if (screenHeightY == 454) {
     venus2Y = venus2Y + 90;
     venus2X = venus2X + 40;
   }
 
+  var hair4ARRAY = [
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair4_blonde,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair4_black,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair4_brown,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair4_honeyblonde,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair4_blue,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair4_pink,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair4_red,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair4_green,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair4_purple,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair4_white,
+      :locX => venus2X,
+      :locY => venus2Y
+    }))
+  ];
 
-var sleepARRAY = [
-(new WatchUi.Bitmap({
-    :rezId => Rez.Drawables.sleep1,
-    :locX => venus2X,
-    :locY => venus2Y
-})), 
-(new WatchUi.Bitmap({
-    :rezId => Rez.Drawables.sleep0,
-    :locX => venus2X,
-    :locY => venus2Y
-}))
-];
-    return sleepARRAY[character];   
+  return hair4ARRAY[hair];
 }
+function hair5Phase(hair) {
+  var screenHeightY = System.getDeviceSettings().screenHeight;
+  var venus2X = 30;
+  var venus2Y = 0;
+
+  if (screenHeightY == 390) {
+    venus2Y = venus2Y + 30;
+    venus2X = venus2X + 10;
+  }
+
+  if (screenHeightY == 416) {
+    venus2Y = venus2Y + 45;
+    venus2X = venus2X + 10;
+  }
+
+  if (screenHeightY == 454) {
+    venus2Y = venus2Y + 90;
+    venus2X = venus2X + 40;
+  }
+
+  var hair5ARRAY = [
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair5_blonde,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair5_black,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair5_brown,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair5_honeyblonde,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair5_blue,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair5_pink,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair5_red,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair5_green,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair5_purple,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.hair5_white,
+      :locX => venus2X,
+      :locY => venus2Y
+    }))
+  ];
+
+  return hair5ARRAY[hair];
+}
+
+
+
+function bangs0Phase(hair) {
+  var screenHeightY = System.getDeviceSettings().screenHeight;
+  //var screenWidthX = System.getDeviceSettings().screenWidth;
+  var venus2X = 30;
+  var venus2Y = 0;
+
+  if (screenHeightY == 390) {
+    venus2Y = venus2Y + 30;
+    venus2X = venus2X + 10;
+  }
+
+  if (screenHeightY == 416) {
+    venus2Y = venus2Y + 45;
+    venus2X = venus2X + 10;
+  }
+
+  if (screenHeightY == 454) {
+    venus2Y = venus2Y + 90;
+    venus2X = venus2X + 40;
+  }
+var bangs0ARRAY = [
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.bangs0_blonde,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.bangs0_black,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.bangs0_brown,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.bangs0_honeyblonde,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.bangs0_blue,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.bangs0_pink,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.bangs0_red,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.bangs0_green,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.bangs0_purple,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.bangs0_white,
+      :locX => venus2X,
+      :locY => venus2Y
+    }))
+];
+
+
+return bangs0ARRAY[hair];
+}
+
+function bangs1Phase(hair) {
+  var screenHeightY = System.getDeviceSettings().screenHeight;
+  var venus2X = 30;
+  var venus2Y = 0;
+
+  if (screenHeightY == 390) {
+    venus2Y = venus2Y + 30;
+    venus2X = venus2X + 10;
+  }
+
+  if (screenHeightY == 416) {
+    venus2Y = venus2Y + 45;
+    venus2X = venus2X + 10;
+  }
+
+  if (screenHeightY == 454) {
+    venus2Y = venus2Y + 90;
+    venus2X = venus2X + 40;
+  }
+
+  var bangs1ARRAY = [
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.bangs1_blonde,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.bangs1_black,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.bangs1_brown,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.bangs1_honeyblonde,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.bangs1_blue,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.bangs1_pink,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.bangs1_red,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.bangs1_green,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.bangs1_purple,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.bangs1_white,
+      :locX => venus2X,
+      :locY => venus2Y
+    }))
+  ];
+
+  return bangs1ARRAY[hair];
+}
+function bangs2Phase(hair) {
+  var screenHeightY = System.getDeviceSettings().screenHeight;
+  var venus2X = 30;
+  var venus2Y = 0;
+
+  if (screenHeightY == 390) {
+    venus2Y = venus2Y + 30;
+    venus2X = venus2X + 10;
+  }
+
+  if (screenHeightY == 416) {
+    venus2Y = venus2Y + 45;
+    venus2X = venus2X + 10;
+  }
+
+  if (screenHeightY == 454) {
+    venus2Y = venus2Y + 90;
+    venus2X = venus2X + 40;
+  }
+
+  var bangs2ARRAY = [
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.bangs2_blonde,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.bangs2_black,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.bangs2_brown,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.bangs2_honeyblonde,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.bangs2_blue,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.bangs2_pink,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.bangs2_red,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.bangs2_green,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.bangs2_purple,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.bangs2_white,
+      :locX => venus2X,
+      :locY => venus2Y
+    }))
+  ];
+
+  return bangs2ARRAY[hair];
+}
+function bangs3Phase(hair) {
+  var screenHeightY = System.getDeviceSettings().screenHeight;
+  var venus2X = 30;
+  var venus2Y = 0;
+
+  if (screenHeightY == 390) {
+    venus2Y = venus2Y + 30;
+    venus2X = venus2X + 10;
+  }
+
+  if (screenHeightY == 416) {
+    venus2Y = venus2Y + 45;
+    venus2X = venus2X + 10;
+  }
+
+  if (screenHeightY == 454) {
+    venus2Y = venus2Y + 90;
+    venus2X = venus2X + 40;
+  }
+
+  var bangs3ARRAY = [
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.bangs3_blonde,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.bangs3_black,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.bangs3_brown,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.bangs3_honeyblonde,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.bangs3_blue,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.bangs3_pink,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.bangs3_red,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.bangs3_green,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.bangs3_purple,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.bangs3_white,
+      :locX => venus2X,
+      :locY => venus2Y
+    }))
+  ];
+
+  return bangs3ARRAY[hair];
+}
+
+function boysPhase() {
+  var screenHeightY = System.getDeviceSettings().screenHeight;
+  //var screenWidthX = System.getDeviceSettings().screenWidth;
+  var venus2X = 30;
+  var venus2Y = 0;
+
+  if (screenHeightY == 390) {
+    venus2Y = venus2Y + 30;
+    venus2X = venus2X + 10;
+  }
+
+  if (screenHeightY == 416) {
+    venus2Y = venus2Y + 45;
+    venus2X = venus2X + 10;
+  }
+
+  if (screenHeightY == 454) {
+    venus2Y = venus2Y + 90;
+    venus2X = venus2X + 40;
+  }
+var bangs0ARRAY = [
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.boyhair,
+      :locX => venus2X,
+      :locY => venus2Y
+    }))
+    ];
+    return bangs0ARRAY[0];
+}
+
+function eyesPhase(eyes) {
+  var screenHeightY = System.getDeviceSettings().screenHeight;
+  //var screenWidthX = System.getDeviceSettings().screenWidth;
+  var venus2X = 30;
+  var venus2Y = 0;
+
+  if (screenHeightY == 390) {
+    venus2Y = venus2Y + 30;
+    venus2X = venus2X + 10;
+  }
+
+  if (screenHeightY == 416) {
+    venus2Y = venus2Y + 45;
+    venus2X = venus2X + 10;
+  }
+
+  if (screenHeightY == 454) {
+    venus2Y = venus2Y + 90;
+    venus2X = venus2X + 40;
+  }
+
+var eyesARRAY = [
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.eyes0,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.eyes1,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.eyes2,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.eyes3,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.eyes4,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.eyes5,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.eyes6,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.eyes7,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.eyes8,
+      :locX => venus2X,
+      :locY => venus2Y
+    }))
+];
+return eyesARRAY[eyes];
+}
+
+function arms0Phase(arms) {
+  var screenHeightY = System.getDeviceSettings().screenHeight;
+  var venus2X = 30;
+  var venus2Y = 0;
+
+  if (screenHeightY == 390) {
+    venus2Y = venus2Y + 30;
+    venus2X = venus2X + 10;
+  }
+
+  if (screenHeightY == 416) {
+    venus2Y = venus2Y + 45;
+    venus2X = venus2X + 10;
+  }
+
+  if (screenHeightY == 454) {
+    venus2Y = venus2Y + 90;
+    venus2X = venus2X + 40;
+  }
+
+  var arms0ARRAY = [
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.arms0_fair,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.arms0_medium,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.arms0_dark,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.arms0_phantom,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.arms0_pink,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.arms0_green,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.arms0_blue,
+      :locX => venus2X,
+      :locY => venus2Y
+    }))
+  ];
+
+  return arms0ARRAY[arms];
+}
+
+function arms1Phase(arms) {
+  var screenHeightY = System.getDeviceSettings().screenHeight;
+  //var screenWidthX = System.getDeviceSettings().screenWidth;
+  var venus2X = 30;
+  var venus2Y = 0;
+
+  if (screenHeightY == 390) {
+    venus2Y = venus2Y + 30;
+    venus2X = venus2X + 10;
+  }
+
+  if (screenHeightY == 416) {
+    venus2Y = venus2Y + 45;
+    venus2X = venus2X + 10;
+  }
+
+  if (screenHeightY == 454) {
+    venus2Y = venus2Y + 90;
+    venus2X = venus2X + 40;
+  }
+var arms1ARRAY = [
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.arms1_fair,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.arms1_medium,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.arms1_dark,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.arms1_phantom,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.arms1_pink,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.arms1_green,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.arms1_blue,
+      :locX => venus2X,
+      :locY => venus2Y
+    }))
+];
+
+return arms1ARRAY[arms];
+}
+
+function petPhase(pet) {
+  var screenHeightY = System.getDeviceSettings().screenHeight;
+  //var screenWidthX = System.getDeviceSettings().screenWidth;
+  var venus2X = 30;
+  var venus2Y = 0;
+
+  if (screenHeightY == 390) {
+    venus2Y = venus2Y + 30;
+    venus2X = venus2X + 10;
+  }
+
+  if (screenHeightY == 416) {
+    venus2Y = venus2Y + 45;
+    venus2X = venus2X + 10;
+  }
+
+  if (screenHeightY == 454) {
+    venus2Y = venus2Y + 90;
+    venus2X = venus2X + 40;
+  }
+  var petARRAY = [
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.pet0,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.pet1,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.pet2,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.pet3,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.pet4,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.pet5,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.pet6,
+      :locX => venus2X,
+      :locY => venus2Y
+    }))
+];
+
+return petARRAY[pet];
+}
+
+function monsterPhase(monster, minutes) {
+  var screenHeightY = System.getDeviceSettings().screenHeight;
+  //var screenWidthX = System.getDeviceSettings().screenWidth;
+  var venus2X = 30;
+  var venus2Y = 0;
+
+  if (screenHeightY == 390) {
+    venus2Y = venus2Y + 30;
+    venus2X = venus2X + 10;
+  }
+
+  if (screenHeightY == 416) {
+    venus2Y = venus2Y + 45;
+    venus2X = venus2X + 10;
+  }
+
+  if (screenHeightY == 454) {
+    venus2Y = venus2Y + 90;
+    venus2X = venus2X + 40;
+  }
+  var monsterARRAY = [
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.monster0,
+      :locX => venus2X,
+      :locY => venus2Y -((minutes%3)*5)
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.monster1,
+      :locX => venus2X -((minutes%3)*5),
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.monster2,
+      :locX => venus2X-((minutes%3)*5),
+      :locY => venus2Y
+    }))
+];
+
+return monsterARRAY[monster];
+}
+
+  function legPhase(legs) {
+  var screenHeightY = System.getDeviceSettings().screenHeight;
+  //var screenWidthX = System.getDeviceSettings().screenWidth;
+  var venus2X = 30;
+  var venus2Y = 0;
+
+  if (screenHeightY == 390) {
+    venus2Y = venus2Y + 30;
+    venus2X = venus2X + 10;
+  }
+
+  if (screenHeightY == 416) {
+    venus2Y = venus2Y + 45;
+    venus2X = venus2X + 10;
+  }
+
+  if (screenHeightY == 454) {
+    venus2Y = venus2Y + 90;
+    venus2X = venus2X + 40;
+  }
+  
+var legsARRAY = [
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.legs0,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.legs1,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.legs2_fair,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.legs2_medium,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.legs2_dark,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.legs2_phantom,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.legs2_pink,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.legs2_green,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.legs2_blue,
+      :locX => venus2X,
+      :locY => venus2Y
+    }))
+];
+
+return legsARRAY[legs];
+  }
+
+  function dressPhase(dress) {
+  var screenHeightY = System.getDeviceSettings().screenHeight;
+  //var screenWidthX = System.getDeviceSettings().screenWidth;
+  var venus2X = 30;
+  var venus2Y = 0;
+
+  if (screenHeightY == 390) {
+    venus2Y = venus2Y + 30;
+    venus2X = venus2X + 10;
+  }
+
+  if (screenHeightY == 416) {
+    venus2Y = venus2Y + 45;
+    venus2X = venus2X + 10;
+  }
+
+  if (screenHeightY == 454) {
+    venus2Y = venus2Y + 90;
+    venus2X = venus2X + 40;
+  }
+  var dressARRAY = [
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.dress0,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.dress1,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.dress2,
+      :locX => venus2X,
+      :locY => venus2Y
+    })),
+    (new WatchUi.Bitmap({
+      :rezId => Rez.Drawables.dress3,
+      :locX => venus2X,
+      :locY => venus2Y
+    }))
+];
+
+return dressARRAY[dress];
+  }
 
 function goalPhase(number, seconds, steps){
   var screenHeightY = System.getDeviceSettings().screenHeight;
@@ -679,44 +1846,6 @@ else{
         
 }
 
-//DrawOpacityGraphic - dog -
-function waterPhase(){
-  var screenHeightY = System.getDeviceSettings().screenHeight;
- // var screenWidthX = System.getDeviceSettings().screenWidth;
-  var venus2X = 0;
-  var venus2Y = 0;
-
-
-    var waterArray = [
-    (new WatchUi.Bitmap({
-        :rezId => Rez.Drawables.water360,
-        :locX => venus2X,
-        :locY => venus2Y
-    })),
-        (new WatchUi.Bitmap({
-        :rezId => Rez.Drawables.water390,
-        :locX => venus2X,
-        :locY => venus2Y
-    })),
-        (new WatchUi.Bitmap({
-        :rezId => Rez.Drawables.water416,
-        :locX => venus2X,
-        :locY => venus2Y
-    })),
-        (new WatchUi.Bitmap({
-        :rezId => Rez.Drawables.water454,
-        :locX => venus2X,
-        :locY => venus2Y
-    }))
-
-];
-if (screenHeightY==360){return waterArray[0];  }
-else if  (screenHeightY==390){return waterArray[1];  }
-else if  (screenHeightY==416){return waterArray[2];  }
-else if  (screenHeightY==454){return waterArray[3];  }
-else{return waterArray[0];  }
-
-}
 
 
 
@@ -806,7 +1935,7 @@ function getMoonPhase(year, month, day) {
 function moonArrFun(moonnumber){
     var screenHeightY = System.getDeviceSettings().screenHeight;
     var screenWidthX = System.getDeviceSettings().screenWidth;    
-    var venus2Y = 25*(screenHeightY/360);
+    var venus2Y = 40*(screenHeightY/360);
     var venus2XL = ((screenWidthX)*115/360);
     //Size Variations Pixel Circle
     //360 VenuS2 - The Model I designed it for 
@@ -877,11 +2006,18 @@ function digitPhase(seconds, push){
   //var screenWidthX = System.getDeviceSettings().screenWidth;
   var venus2X = screenHeightY/2+push;
  // var venus2Y = 15;
-  var venus2Y = ((screenHeightY/6)+15);
+   var venus2Y = screenHeightY/3;
 
-    if (screenHeightY == 416){
-      venus2Y = ((venus2Y)-8);
+    if (screenHeightY == 390){
+        venus2Y = ((venus2Y)-10);
       
+    }
+    if (screenHeightY == 416){
+      venus2Y = ((venus2Y)-15);
+      
+    }
+        if (screenHeightY == 454){
+        venus2Y = ((venus2Y)-25);
     }
 
 
